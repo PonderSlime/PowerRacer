@@ -1,10 +1,10 @@
 extends VehicleBody3D
 class_name BaseCar
 
-@export var STEER_SPEED = 1.5
+@export var STEER_SPEED = 1.5 / 2
 @export var STEER_LIMIT = 0.6
 var steer_target = 0
-@export var engine_force_value = 40
+@export var engine_force_value = 40#40
 
 var fwd_mps : float
 var speed: float
