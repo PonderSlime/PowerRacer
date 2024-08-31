@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cu1k5qn3bp3i7"]
+[gd_scene load_steps=8 format=3 uid="uid://cvxtayt74mlbf"]
 
 [ext_resource type="Script" path="res://assets/scripts/camera.gd" id="1_6kc7b"]
 [ext_resource type="Shader" path="res://scenes/outline.gdshader" id="2_hgo72"]
@@ -44,6 +44,7 @@ script = ExtResource("1_6kc7b")
 spring_length = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="origin/SpringArm3D"]
+far = 10000.0
 
 [node name="Outline" type="MeshInstance3D" parent="origin/SpringArm3D/Camera3D"]
 material_override = SubResource("ShaderMaterial_6aove")

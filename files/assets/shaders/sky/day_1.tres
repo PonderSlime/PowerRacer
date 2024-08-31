@@ -34,7 +34,7 @@ noise = SubResource("FastNoiseLite_xtxau")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a4m0o"]
 shader = ExtResource("1_etgv8")
-shader_parameter/clouds_samples = 32
+shader_parameter/clouds_samples = 16
 shader_parameter/shadow_sample = 4
 shader_parameter/clouds_density = 0.4
 shader_parameter/clouds_scale = 1.0

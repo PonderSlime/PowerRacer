@@ -1,14 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://xmv3neujlcex"]
+[gd_scene load_steps=4 format=3 uid="uid://xmv3neujlcex"]
 
-[ext_resource type="PackedScene" uid="uid://oje3f5rf0a0x" path="res://assets/prepped/car1.tscn" id="2_1y7up"]
+[ext_resource type="PackedScene" uid="uid://ckxvdrndpw2px" path="res://assets/prepped/car1.tscn" id="2_1y7up"]
 [ext_resource type="Sky" uid="uid://dl3xsu0mbc71m" path="res://assets/shaders/sky/day_1.tres" id="2_8668u"]
-
-[sub_resource type="Curve3D" id="Curve3D_e7t86"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -3.62739, 0, 10, 0, 0, 0, 0, 0, 0, 5.81901, 0, 20, 0, 0, 0, 0, 0, 0, 14.3171, 0, 13.7525, 0, 0, 0, 0, 0, 0, 5.16487, 0, 1.93908, 0, 0, 0, 0, 0, 0, -4, 0, -0.1),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
-}
-point_count = 6
 
 [sub_resource type="Environment" id="Environment_xpe4o"]
 background_mode = 2
@@ -22,27 +15,8 @@ glow_enabled = true
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-curve = SubResource("Curve3D_e7t86")
-
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
-use_collision = true
-polygon = PackedVector2Array(0, 0, 0, 1, 4, 1, 4, 0)
-mode = 2
-path_node = NodePath("..")
-path_interval_type = 0
-path_interval = 1.0
-path_simplify_angle = 0.0
-path_rotation = 2
-path_local = false
-path_continuous_u = true
-path_u_distance = 1.0
-path_joined = false
-smooth_faces = true
-
 [node name="Car" parent="." instance=ExtResource("2_1y7up")]
-transform = Transform3D(-0.226736, 0, -0.973956, 0, 1, 0, 0.973956, 0, -0.226736, 0, 6, -4.89488)
+transform = Transform3D(-0.226736, 0, -0.973956, 0, 1, 0, 0.973956, 0, -0.226736, 0, 6, 5.32374)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xpe4o")

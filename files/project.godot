@@ -24,6 +24,10 @@ settings/stdout/print_fps=true
 window/dpi/allow_hidpi=false
 window/vsync/vsync_mode=0
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg", "res://addons/road-generator/plugin.cfg", "res://addons/waterways/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
+
 [input]
 
 forward={
