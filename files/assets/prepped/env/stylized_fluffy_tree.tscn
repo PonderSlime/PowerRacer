@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dlsgrrqjct8or"]
 
-[ext_resource type="PackedScene" uid="uid://dvm5ynjtmjuba" path="res://assets/models/env/Stylized Fluffy Tree.blend" id="1_t8uvc"]
-[ext_resource type="Texture2D" uid="uid://dic7osp8mu7ax" path="res://assets/prepped/env/Textures/Trees/Leaves/leaves1.png" id="2_wmu70"]
+[ext_resource type="PackedScene" uid="uid://cxqv2dpqvjnl4" path="res://assets/models/env/Stylized Fluffy Tree.blend" id="1_t8uvc"]
+[ext_resource type="Texture2D" uid="uid://dbk7no5i465xw" path="res://assets/prepped/env/Textures/Trees/Leaves/leaves1.png" id="2_wmu70"]
 [ext_resource type="ArrayMesh" uid="uid://kb6afe53gj1i" path="res://assets/prepped/env/dark_green_leaves.res" id="3_faui7"]
 
 [sub_resource type="Gradient" id="Gradient_ry8gk"]

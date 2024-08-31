@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ckxvdrndpw2px"]
 
 [ext_resource type="Script" path="res://assets/scripts/base_car.gd" id="1_3jtjt"]
-[ext_resource type="PackedScene" uid="uid://ni31l7i40nwb" path="res://assets/models/car/Car1.blend" id="1_vo0vn"]
+[ext_resource type="PackedScene" uid="uid://c32h7njj7ric4" path="res://assets/models/car/Car1.blend" id="1_vo0vn"]
 [ext_resource type="ArrayMesh" uid="uid://b27px7y0auk7y" path="res://assets/models/car/tire.res" id="2_j8bgn"]
 [ext_resource type="PackedScene" uid="uid://cvxtayt74mlbf" path="res://assets/prepped/camera.tscn" id="3_ywfgl"]
 
