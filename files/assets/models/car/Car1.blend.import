@@ -46,6 +46,9 @@ _subresources={
 "nodes": {
 "PATH:Car Body": {
 "physics/shape_type": 1
+},
+"PATH:Wheel": {
+"mesh_instance/layers": 0
 }
 }
 }
