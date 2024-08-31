@@ -91,10 +91,12 @@ mat3 direction_to_matrix(vec3 direction) {
 }
 
 float cloud_density(vec3 p, float progress){
-	float t_o = TIME * 0.001;
-	float t_o_small = TIME * -0.005;
-	float noise = texture(cloud_noise_sampler, p.xy * 4.0 + t_o_small).x * 0.1 + 0.9;
-	float clouds_shape = texture(cloud_shape_sampler, (p.xy + t_o) * clouds_scale).x;
+	//float t_o = TIME * 0.001;
+	//float t_o_small = TIME * -0.005;
+	//float noise = texture(cloud_noise_sampler, p.xy * 4.0 + t_o_small).x * 0.1 + 0.9;
+	//float clouds_shape = texture(cloud_shape_sampler, (p.xy + t_o) * clouds_scale).x;
+	float noise = texture(cloud_noise_sampler, p.xy * 4.0).x * 0.1 + 0.9;
+	float clouds_shape = texture(cloud_shape_sampler, (p.xy) * clouds_scale).x;
 	float height_curve = texture(cloud_curves, vec2(progress, 0.0)).x;
 	float base_density = 1.0 - clouds_density;
 	float density =

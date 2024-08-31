@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://oje3f5rf0a0x"]
 
-[ext_resource type="Script" path="res://assets/prepped/base_car.gd" id="1_3jtjt"]
+[ext_resource type="Script" path="res://assets/scripts/base_car.gd" id="1_3jtjt"]
 [ext_resource type="PackedScene" uid="uid://ni31l7i40nwb" path="res://assets/models/car/Car1.blend" id="1_vo0vn"]
 [ext_resource type="ArrayMesh" uid="uid://b27px7y0auk7y" path="res://assets/models/car/tire.res" id="2_j8bgn"]
 [ext_resource type="PackedScene" uid="uid://cu1k5qn3bp3i7" path="res://assets/prepped/camera.tscn" id="3_ywfgl"]
@@ -21,6 +21,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.502553, 0)
 shape = SubResource("ConvexPolygonShape3D_dnv7g")
 
 [node name="Car1" parent="LowPolySportsCar" instance=ExtResource("1_vo0vn")]
+
+[node name="cam_pos" type="CollisionShape3D" parent="LowPolySportsCar/Car1"]
+shape = SubResource("SphereShape3D_5m803")
 
 [node name="front_right_tire" type="VehicleWheel3D" parent="LowPolySportsCar"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.907, -0.951, -1.403)
@@ -84,9 +87,6 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 mesh = ExtResource("2_j8bgn")
 skeleton = NodePath("../../..")
 
-[node name="cam_pos" type="CollisionShape3D" parent="LowPolySportsCar"]
-shape = SubResource("SphereShape3D_5m803")
-
 [node name="Camera" parent="." node_paths=PackedStringArray("cam_root", "car") instance=ExtResource("3_ywfgl")]
-cam_root = NodePath("../LowPolySportsCar/cam_pos")
+cam_root = NodePath("../LowPolySportsCar/Car1/cam_pos")
 car = NodePath("../LowPolySportsCar")

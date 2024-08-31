@@ -18,7 +18,7 @@ func _input(event: InputEvent) -> void:
 	
 func _physics_process(delta: float) -> void:
 	global_position = cam_root.global_position
-	global_rotation.y = lerp_angle(global_rotation.y, car.global_rotation.y, delta * 2)
+	$origin.global_rotation.y = lerp_angle($origin.global_rotation.y, car.global_rotation.y, delta * 2)
 	if is_captured == true:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	elif is_captured == false:
