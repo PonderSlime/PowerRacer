@@ -35,23 +35,24 @@ flip_faces = true
 size = Vector3(2, 2, 2)
 
 [node name="Camera" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_6kc7b")
 
 [node name="origin" type="Node3D" parent="."]
 
-[node name="SpringArm3D" type="SpringArm3D" parent="origin"]
+[node name="pivot" type="Node3D" parent="origin"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="origin/pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0)
 spring_length = 40.0
 
-[node name="Camera3D" type="Camera3D" parent="origin/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="origin/pivot/SpringArm3D"]
 far = 10000.0
 
-[node name="Outline" type="MeshInstance3D" parent="origin/SpringArm3D/Camera3D"]
+[node name="Outline" type="MeshInstance3D" parent="origin/pivot/SpringArm3D/Camera3D"]
 material_override = SubResource("ShaderMaterial_6aove")
 mesh = SubResource("BoxMesh_n8kwm")
 
-[node name="Pointillism" type="MeshInstance3D" parent="origin/SpringArm3D/Camera3D"]
+[node name="Pointillism" type="MeshInstance3D" parent="origin/pivot/SpringArm3D/Camera3D"]
 material_override = SubResource("ShaderMaterial_jpb2b")
 extra_cull_margin = 16384.0
 mesh = SubResource("BoxMesh_yihdh")

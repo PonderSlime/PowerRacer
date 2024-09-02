@@ -15,6 +15,10 @@ func _ready():
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		is_captured = !is_captured
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		var mouse_delta = event.relative
+		$origin/pivot.rotate_y(deg_to_rad(-event.relative.x * 0.2))
+		$origin/pivot.rotation.y = clampf($origin/pivot.rotation.y, -deg_to_rad(25), deg_to_rad(25))
 	
 func _physics_process(delta: float) -> void:
 	global_position = cam_root.global_position
@@ -23,27 +27,4 @@ func _physics_process(delta: float) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	elif is_captured == false:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	#if !player.is_on_floor() and Input.is_action_just_pressed("glide"):
-		#if is_gliding:
-			#is_gliding = false
-			#print("glide off")
-		#else:
-			#if !is_gliding:
-				#is_gliding = true
-				#print("glide on")
-	#else:
-		#if player.is_on_floor():
-			#is_gliding = false
-			
-		#if tween:
-			#tween.kill()
-	#
-		#tween = create_tween()
-		#if !is_gliding:
-			#tween.tween_property(camera, "fov", camera_fov, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-		#else:
-			#tween.tween_property(camera, "fov", 85, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	#
-
-#func _on_set_movement_state(_movement_state : MovementState):
-	#camera_fov = _movement_state.camera_fov
+	$origin/pivot/SpringArm3D/Camera3D.fov = lerp($origin/pivot/SpringArm3D/Camera3D.fov, MovementStates.cam_fov, delta * 4)

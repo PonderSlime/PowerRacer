@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://xmv3neujlcex"]
+[gd_scene load_steps=17 format=3 uid="uid://xmv3neujlcex"]
 
 [ext_resource type="PackedScene" uid="uid://ckxvdrndpw2px" path="res://assets/prepped/car1.tscn" id="2_1y7up"]
-[ext_resource type="Sky" uid="uid://dl3xsu0mbc71m" path="res://assets/shaders/sky/day_1.tres" id="2_8668u"]
 [ext_resource type="Script" path="res://addons/road-generator/nodes/road_manager.gd" id="3_3y65a"]
 [ext_resource type="Script" path="res://addons/road-generator/nodes/road_container.gd" id="4_15s3m"]
 [ext_resource type="Material" path="res://addons/road-generator/resources/road_texture.material" id="5_fou3d"]
@@ -13,12 +12,17 @@
 [ext_resource type="Texture2D" uid="uid://da28yxsg10tr2" path="res://scenes/test_slot1_albedo_bump.png" id="11_dohxp"]
 [ext_resource type="Texture2D" uid="uid://b6fijjryskpgv" path="res://scenes/test_slot0_normal_roughness.png" id="12_cy2wf"]
 [ext_resource type="Texture2D" uid="uid://c8co6sbl034x1" path="res://scenes/test_slot1_normal_roughness.png" id="13_14rbn"]
-[ext_resource type="PackedScene" uid="uid://cepkx3f03s0x" path="res://assets/prepped/env/stylized_fluffly_fir_tree.tscn" id="14_xyctj"]
-[ext_resource type="PackedScene" uid="uid://c4y53qg3ftw8d" path="res://assets/prepped/env/stylized_fluffy_aspen.tscn" id="15_5fq4q"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bcmcr"]
+sky_top_color = Color(0.207843, 0.639216, 0.831373, 1)
+sky_horizon_color = Color(0.576471, 0.733333, 0.831373, 1)
+
+[sub_resource type="Sky" id="Sky_6o6lb"]
+sky_material = SubResource("ProceduralSkyMaterial_bcmcr")
 
 [sub_resource type="Environment" id="Environment_xpe4o"]
 background_mode = 2
-sky = ExtResource("2_8668u")
+sky = SubResource("Sky_6o6lb")
 tonemap_mode = 2
 ssao_radius = 1.5
 ssao_intensity = 0.6
@@ -58,6 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 6)
 script = ExtResource("6_5hkqv")
 traffic_dir = [2, 1]
 lanes = [5, 5]
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_009")
 next_pt_init = NodePath("../RP_002")
 
@@ -66,6 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42.4646)
 script = ExtResource("6_5hkqv")
 traffic_dir = [2, 1]
 lanes = [5, 5]
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_001")
 next_pt_init = NodePath("../RP_003")
 prior_mag = 16.0
@@ -76,6 +82,7 @@ transform = Transform3D(0.856996, 0, 0.515322, 0, 1, 0, -0.515322, 0, 0.856996, 
 script = ExtResource("6_5hkqv")
 traffic_dir = [2, 1]
 lanes = [5, 5]
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_002")
 next_pt_init = NodePath("../RP_004")
 prior_mag = 24.6539
@@ -86,6 +93,7 @@ transform = Transform3D(0.371125, 0, 0.928583, 0, 1, 0, -0.928583, 0, 0.371125, 
 script = ExtResource("6_5hkqv")
 traffic_dir = [2, 1]
 lanes = [5, 5]
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_003")
 next_pt_init = NodePath("../RP_005")
 prior_mag = 8.10144
@@ -96,6 +104,7 @@ transform = Transform3D(-0.203659, 0, 0.979042, 0, 1, 0, -0.979042, 0, -0.203659
 script = ExtResource("6_5hkqv")
 traffic_dir = [2, 1]
 lanes = [5, 5]
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_004")
 next_pt_init = NodePath("../RP_006")
 prior_mag = 8.0
@@ -106,6 +115,7 @@ transform = Transform3D(-0.944043, 0, -0.329822, 0, 1, 0, 0.329822, 0, -0.944043
 script = ExtResource("6_5hkqv")
 traffic_dir = [2, 1]
 lanes = [5, 5]
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_005")
 next_pt_init = NodePath("../RP_007")
 prior_mag = 8.0
@@ -116,6 +126,7 @@ transform = Transform3D(-0.999987, 0, 0.00506139, 0, 1, 0, -0.00506139, 0, -0.99
 script = ExtResource("6_5hkqv")
 traffic_dir = [2, 1]
 lanes = [5, 5]
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_006")
 next_pt_init = NodePath("../RP_008")
 prior_mag = 8.0
@@ -126,6 +137,7 @@ transform = Transform3D(-0.103765, 0, -0.994602, 0, 1, 0, 0.994602, 0, -0.103765
 script = ExtResource("6_5hkqv")
 traffic_dir = [2, 1]
 lanes = [5, 5]
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_007")
 next_pt_init = NodePath("../RP_009")
 prior_mag = 8.0
@@ -136,6 +148,7 @@ transform = Transform3D(0.0228793, 0, -0.999738, 0, 1, 0, 0.999738, 0, 0.0228793
 script = ExtResource("6_5hkqv")
 traffic_dir = [2, 1]
 lanes = [5, 5]
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_008")
 next_pt_init = NodePath("../RP_001")
 prior_mag = 8.0
@@ -158,36 +171,3 @@ shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
-
-[node name="Stylized Fluffly Fir Tree" parent="." instance=ExtResource("14_xyctj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 307.978, 15.2219, 289.368)
-
-[node name="Stylized Fluffly Fir Tree2" parent="." instance=ExtResource("14_xyctj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 187.334, 13.0899, 306.836)
-
-[node name="Stylized Fluffly Fir Tree3" parent="." instance=ExtResource("14_xyctj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.025, 11.1886, 220.739)
-
-[node name="Stylized Fluffy Aspen" parent="." instance=ExtResource("15_5fq4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.359, 13.8786, 266.368)
-
-[node name="Stylized Fluffy Aspen2" parent="." instance=ExtResource("15_5fq4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 244.132, 13.8688, 180.334)
-
-[node name="Stylized Fluffy Aspen3" parent="." instance=ExtResource("15_5fq4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.076, 23.6444, 217.491)
-
-[node name="Stylized Fluffy Aspen4" parent="." instance=ExtResource("15_5fq4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 290.943, 16.2133, 257.952)
-
-[node name="Stylized Fluffy Aspen5" parent="." instance=ExtResource("15_5fq4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 270.444, 15.6876, 333.611)
-
-[node name="Stylized Fluffy Aspen6" parent="." instance=ExtResource("15_5fq4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.659, 17.0609, 345.998)
-
-[node name="Stylized Fluffy Aspen7" parent="." instance=ExtResource("15_5fq4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 259.026, 13.2663, 365.16)
-
-[node name="Stylized Fluffy Aspen8" parent="." instance=ExtResource("15_5fq4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 168.159, 12.6594, 315.328)

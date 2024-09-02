@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c4y53qg3ftw8d"]
 
-[ext_resource type="PackedScene" uid="uid://4eowtnpuwsji" path="res://assets/models/env/Stylized Fluffy Aspen.blend" id="1_5qqtv"]
+[ext_resource type="PackedScene" uid="uid://mjrybdvn750" path="res://assets/models/env/Stylized Fluffy Aspen.blend" id="1_5qqtv"]
 [ext_resource type="ArrayMesh" uid="uid://cfpjid0kpardj" path="res://assets/prepped/env/aspen_leaves.res" id="2_soe61"]
 
 [sub_resource type="Gradient" id="Gradient_2ay4g"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cepkx3f03s0x"]
 
-[ext_resource type="PackedScene" uid="uid://ddy012s51ksbv" path="res://assets/models/env/Stylized Fluffly Fir Tree.blend" id="1_rhrlv"]
+[ext_resource type="PackedScene" uid="uid://cyu0ru2e55xqs" path="res://assets/models/env/Stylized Fluffly Fir Tree.blend" id="1_rhrlv"]
 [ext_resource type="ArrayMesh" uid="uid://kb6afe53gj1i" path="res://assets/prepped/env/dark_green_leaves.res" id="2_k0qhc"]
 
 [sub_resource type="Gradient" id="Gradient_0jyip"]
