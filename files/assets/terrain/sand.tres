@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bnla4ph2pw8hb"]
+
+[ext_resource type="Texture2D" uid="uid://ctehrwsngrjgc" path="res://addons/proton_scatter/demos/assets/textures/t_sand.png" id="1_w2ru2"]
+
+[resource]
+albedo_color = Color(0.800041, 0.684351, 0.58456, 1)
+albedo_texture = ExtResource("1_w2ru2")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true

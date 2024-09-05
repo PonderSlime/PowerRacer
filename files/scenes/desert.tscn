@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1mhvyfypplgt"]
+
+[ext_resource type="PackedScene" uid="uid://ckxvdrndpw2px" path="res://assets/prepped/car1.tscn" id="1_a8fnd"]
+[ext_resource type="PackedScene" uid="uid://bfa3s3kkrgidf" path="res://scenes/terrain/utah/desert_terrain.tscn" id="2_cgukv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pkt47"]
+sky_top_color = Color(0.207843, 0.639216, 0.831373, 1)
+sky_horizon_color = Color(0.576471, 0.733333, 0.831373, 1)
+
+[sub_resource type="Sky" id="Sky_6o6lb"]
+sky_material = SubResource("ProceduralSkyMaterial_pkt47")
+
+[sub_resource type="Environment" id="Environment_wa4v4"]
+background_mode = 2
+sky = SubResource("Sky_6o6lb")
+tonemap_mode = 2
+ssao_radius = 1.5
+ssao_intensity = 0.6
+ssao_power = 32.7
+ssao_detail = 1.0
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Car" parent="." instance=ExtResource("1_a8fnd")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 181.634, 23.1023, 208.108)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wa4v4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 17.4456)
+shadow_enabled = true
+shadow_blur = 5.0
+
+[node name="Node3D" parent="." instance=ExtResource("2_cgukv")]

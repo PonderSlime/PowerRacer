@@ -3,7 +3,8 @@ extends Node
 enum States {IDLE, DRIVING, SPEEDING, STOP}
 var state : States = States.IDLE
 var cam_fov : float = 75
-var speeding
+var speeding : bool = false
+var is_firing : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -19,4 +20,4 @@ func _physics_process(delta: float) -> void:
 	elif state == States.DRIVING:
 		cam_fov = lerp(cam_fov, 110., delta * 4)
 	elif state == States.SPEEDING:
-		cam_fov = lerp(cam_fov, 95., delta * 4)
+		cam_fov = lerp(cam_fov, 120., delta * 4)

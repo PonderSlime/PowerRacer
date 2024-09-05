@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://drsnsos7tm5ae"]
+
+[ext_resource type="Script" path="res://assets/scripts/TreadDecal.gd" id="1_but7g"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_but7g")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+radius = 0.05
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

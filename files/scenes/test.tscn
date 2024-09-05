@@ -17,12 +17,12 @@
 sky_top_color = Color(0.207843, 0.639216, 0.831373, 1)
 sky_horizon_color = Color(0.576471, 0.733333, 0.831373, 1)
 
-[sub_resource type="Sky" id="Sky_6o6lb"]
+[sub_resource type="Sky" id="Sky_raicv"]
 sky_material = SubResource("ProceduralSkyMaterial_bcmcr")
 
 [sub_resource type="Environment" id="Environment_xpe4o"]
 background_mode = 2
-sky = SubResource("Sky_6o6lb")
+sky = SubResource("Sky_raicv")
 tonemap_mode = 2
 ssao_radius = 1.5
 ssao_intensity = 0.6
