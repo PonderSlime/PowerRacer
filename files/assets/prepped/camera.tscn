@@ -49,10 +49,12 @@ spring_length = 40.0
 far = 10000.0
 
 [node name="Outline" type="MeshInstance3D" parent="origin/pivot/SpringArm3D/Camera3D"]
+visible = false
 material_override = SubResource("ShaderMaterial_6aove")
 mesh = SubResource("BoxMesh_n8kwm")
 
 [node name="Pointillism" type="MeshInstance3D" parent="origin/pivot/SpringArm3D/Camera3D"]
+visible = false
 material_override = SubResource("ShaderMaterial_jpb2b")
 extra_cull_margin = 16384.0
 mesh = SubResource("BoxMesh_yihdh")

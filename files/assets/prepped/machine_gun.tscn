@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://btbukmi4ef5r2"]
+
+[ext_resource type="Script" path="res://assets/prepped/machine_gun.gd" id="1_iu506"]
+[ext_resource type="PackedScene" uid="uid://bvdiqvsip1qyg" path="res://assets/prepped/muzzle_flash.tscn" id="2_jlwd8"]
+
+[sub_resource type="Animation" id="Animation_xiwkp"]
+resource_name = "MachineGun"
+length = 0.1334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Movement:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.05)]
+}
+
+[sub_resource type="Animation" id="Animation_h130v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Movement/Mesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Movement:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_de24s"]
+_data = {
+"MachineGun": SubResource("Animation_xiwkp"),
+"RESET": SubResource("Animation_h130v")
+}
+
+[node name="MachineGunLeft" type="Node3D" node_paths=PackedStringArray("raycast", "anim_player")]
+script = ExtResource("1_iu506")
+raycast = NodePath("Movement/RayCast3DLeft")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_de24s")
+}
+
+[node name="Movement" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+
+[node name="RayCast3DLeft" type="RayCast3D" parent="Movement"]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 0, -0.53)
+target_position = Vector3(0, -100, 0)
+
+[node name="Mesh" type="CSGCylinder3D" parent="Movement"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+radius = 0.1
+height = 1.0
+
+[node name="MuzzleFlash" parent="Movement" node_paths=PackedStringArray("weapon") instance=ExtResource("2_jlwd8")]
+weapon = NodePath("../..")

@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://de152hq7piy70"]
-
-[ext_resource type="PackedScene" uid="uid://4q0c38q4otuk" path="res://assets/models/muzzleflash.blend" id="1_rau4j"]
-
-[node name="Node3D" type="Node3D"]
-
-[node name="muzzleflash" parent="." instance=ExtResource("1_rau4j")]

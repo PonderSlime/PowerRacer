@@ -2,14 +2,13 @@ extends VehicleBody3D
 class_name BaseCar
 
 @export var STEER_SPEED = 1.5 / 2
-@export var STEER_LIMIT = 0.6
+@export var STEER_LIMIT = .85#0.6
 var steer_target = 0
 @export var engine_force_value_default = 80#40
 @onready var engine_force_value = engine_force_value_default#40
 
 var fwd_mps : float
 var speed: float
-var tread : bool = false
 var falling : bool = false
 var on_floor : bool = false
 var flip : bool = false
@@ -17,23 +16,6 @@ var flip : bool = false
 func _ready():
 	#%CarResetter.init()
 	pass
-
-func addTireTracks():
-	if $rear_left_tire.is_in_contact():
-		var b = b_decal.instantiate()
-		get_parent().add_child(b)
-		b.global_transform.origin = $rear_left_tire.global_transform.origin
-		b.global_position.y -= 0.29
-		var r = get_rotation()
-		b.set_rotation(r)
-	if $rear_right_tire.is_in_contact():
-		var b = b_decal.instantiate()
-		get_parent().add_child(b)
-		b.global_transform.origin = $rear_right_tire.global_transform.origin
-		b.global_position.y -= 0.29
-		var r = get_rotation()
-		b.set_rotation(r)
-	#wdd
 	
 func _physics_process(delta):
 	speed = linear_velocity.length()*Engine.get_frames_per_second()*delta
@@ -42,26 +24,13 @@ func _physics_process(delta):
 	process_accel(delta)
 	process_steer(delta)
 	process_brake(delta)
-	if $rear_left_tire.is_in_contact() == false:
-		falling = true
-	elif $rear_left_tire.is_in_contact():
-		falling = false
-	if falling == true:
-		tread = true
-		await get_tree().create_timer(4).timeout
-		tread = false
-	#if falling == false:
-	#if on_floor:
 	if get_contact_count() > 0 or $rear_left_tire.is_in_contact() == true:
 		if Input.is_action_just_pressed("hop"):
 			linear_velocity.y += 10
-	if tread:
-		addTireTracks()
 		
 	if falling == true:
 		if Input.is_action_pressed("brake"):
 			angular_velocity.z = 0
-			print("brake")
 	#%Hud/speed.text=str(round(speed*3.8))+"  KMPH"
 	#print(str(round(speed*3.8))+"  KMPH")
 
@@ -108,9 +77,6 @@ func process_brake(delta):
 		brake=0.5
 		$rear_left_tire.wheel_friction_slip=2
 		$rear_right_tire.wheel_friction_slip=2
-		tread = true
-	if Input.is_action_just_released("brake"):
-		tread = false
 	else:
 		$rear_left_tire.wheel_friction_slip=2.9
 		$rear_right_tire.wheel_friction_slip=2.9

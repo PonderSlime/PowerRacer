@@ -17,8 +17,12 @@ func _input(event: InputEvent) -> void:
 		is_captured = !is_captured
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		var mouse_delta = event.relative
+		$origin/pivot/SpringArm3D.rotate_x(deg_to_rad(-event.relative.y * 0.2))
 		$origin/pivot.rotate_y(deg_to_rad(-event.relative.x * 0.2))
+		
 		$origin/pivot.rotation.y = clampf($origin/pivot.rotation.y, -deg_to_rad(70), deg_to_rad(70))
+		
+		$origin/pivot/SpringArm3D.rotation.x = clampf($origin/pivot/SpringArm3D.rotation.x, -deg_to_rad(25), deg_to_rad(5))
 	
 func _physics_process(delta: float) -> void:
 	global_position = cam_root.global_position

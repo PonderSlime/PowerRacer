@@ -1,14 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://drsnsos7tm5ae"]
+[gd_scene load_steps=4 format=3 uid="uid://drsnsos7tm5ae"]
 
 [ext_resource type="Script" path="res://assets/scripts/TreadDecal.gd" id="1_but7g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygp1c"]
+cull_mode = 2
+albedo_color = Color(0.162066, 0.162066, 0.162066, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yhs2y"]
+size = Vector2(0.1, 0.1)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_but7g")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-radius = 0.05
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 20.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ygp1c")
+mesh = SubResource("PlaneMesh_yhs2y")
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

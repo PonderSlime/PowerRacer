@@ -8,7 +8,6 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
-albedo_color = Color(1, 1, 1, 0.615686)
 albedo_texture = ExtResource("2_4u1ha")
 emission_enabled = true
 emission = Color(0.133196, 0.133196, 0.133196, 1)
@@ -26,7 +25,7 @@ mesh = SubResource("1")
 skeleton = NodePath("")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.449
+wait_time = 60.0
 one_shot = true
 autostart = true
 

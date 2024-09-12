@@ -1,11 +1,24 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckxvdrndpw2px"]
+[gd_scene load_steps=15 format=3 uid="uid://ckxvdrndpw2px"]
 
 [ext_resource type="Script" path="res://assets/scripts/base_car.gd" id="1_3jtjt"]
 [ext_resource type="PackedScene" uid="uid://b55ajritlpja5" path="res://assets/models/car/Car1.blend" id="1_vo0vn"]
 [ext_resource type="ArrayMesh" uid="uid://b27px7y0auk7y" path="res://assets/models/car/tire.res" id="2_j8bgn"]
 [ext_resource type="PackedScene" uid="uid://cvxtayt74mlbf" path="res://assets/prepped/camera.tscn" id="3_ywfgl"]
 [ext_resource type="Script" path="res://assets/scripts/tread_effect.gd" id="4_nxhv4"]
-[ext_resource type="Script" path="res://assets/prepped/machine_gun.gd" id="5_2nm6d"]
+[ext_resource type="PackedScene" uid="uid://btbukmi4ef5r2" path="res://assets/prepped/machine_gun.tscn" id="6_00drx"]
+[ext_resource type="Script" path="res://assets/prepped/tire_marks.gd" id="7_sc1eh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o13tc"]
+albedo_color = Color(0.201527, 0.201527, 0.201527, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tf5pm"]
+albedo_color = Color(0.201527, 0.201527, 0.201527, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnxty"]
+albedo_color = Color(0.201527, 0.201527, 0.201527, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtmgj"]
+albedo_color = Color(0.201527, 0.201527, 0.201527, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dnv7g"]
 points = PackedVector3Array(1.12169, 0.256141, -0.445553, 1.06964, -0.320368, -0.7686, 0.988174, -0.525782, -2.02268, 0.988174, -0.284789, -1.9889, 0.988174, -0.0465237, -1.89277, 1.10214, 0.295634, -0.449883, 1.07316, 0.362998, -0.3269, 0.946232, 0.2884, 1.89372, 0.988174, 0.118092, 2.00891, 0.988174, 0.0105224, 2.17476, 1.06964, -0.308153, 0.817621, 0.988174, -0.525782, -1.7988, 0.745303, -0.525782, -2.16082, 0.566334, -0.0851869, -2.20023, 0.688209, 0.0622315, -2.10712, 0.97456, -0.029564, -1.90056, 0.90363, 0.153434, -1.76416, 0.666469, 0.685825, -0.0203085, 0.666469, 0.652142, 0.764358, 0.893968, 0.347818, 2.01064, -0.988394, 0.0105224, 2.17476, 0.908242, -0.234028, 2.17476, 0.988174, -0.238298, 2.00631, 0.988174, -0.281231, 1.89372, 0.908242, -0.489135, 1.89372, 0.973242, -0.525782, 0.826715, 0.315118, -0.525782, -2.19806, 0, 0.0622315, -2.24916, 0.344104, 0.0622315, -2.20889, 0.688209, 0.241316, -1.80443, 0.90363, 0.0864257, -1.85466, -0.666688, 0.685825, -0.0203085, -0.666688, 0.652142, 0.764358, -0.894188, 0.347818, 2.01064, -0.908462, -0.234028, 2.17476, -0.988394, 0.118092, 2.00891, -1.12169, 0.256141, -0.445553, -1.06986, -0.308153, 0.817621, -0.988394, -0.238298, 2.00631, 0.908242, -0.452132, 2.00501, -0.908462, -0.489135, 1.89372, 0.688209, -0.525782, 1.23074, 0, -0.525782, -2.21192, -0.566553, -0.0851869, -2.20023, -0.344324, 0.0622315, -2.20889, -0.688428, 0.241316, -1.80443, -0.315337, -0.525782, -2.19806, -0.90385, 0.153434, -1.76416, -1.07338, 0.362998, -0.3269, -0.946451, 0.2884, 1.89372, -0.908462, -0.452132, 2.00501, -1.10236, 0.295634, -0.449883, -0.988394, -0.0465237, -1.89277, -0.988394, -0.284789, -1.9889, -0.988394, -0.525782, -2.02268, -1.06986, -0.320368, -0.7686, -0.973462, -0.525782, 0.826715, -0.988394, -0.281231, 1.89372, -0.988394, -0.525782, -1.7988, -0.688428, -0.525782, 1.23074, -0.745523, -0.525782, -2.16082, -0.688428, 0.0622315, -2.10712, -0.90385, 0.0864257, -1.85466, -0.974779, -0.029564, -1.90056)
@@ -20,69 +33,31 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 uv1_triplanar = true
 
-[sub_resource type="Animation" id="Animation_ndx30"]
-resource_name = "MachineGun"
-length = 0.1334
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.0500695)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../MachineGun/Mesh:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.05)]
-}
-
-[sub_resource type="Animation" id="Animation_h130v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../MachineGun/Mesh:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_de24s"]
-_data = {
-"MachineGun": SubResource("Animation_ndx30"),
-"RESET": SubResource("Animation_h130v")
-}
-
 [node name="Car" type="Node3D"]
+
+[node name="TireMarks" type="MeshInstance3D" parent="." node_paths=PackedStringArray("target")]
+material_override = SubResource("StandardMaterial3D_o13tc")
+script = ExtResource("7_sc1eh")
+target = NodePath("../LowPolySportsCar/front_right_tire")
+skidLimit = 120.0
+
+[node name="TireMarks2" type="MeshInstance3D" parent="." node_paths=PackedStringArray("target")]
+material_override = SubResource("StandardMaterial3D_tf5pm")
+script = ExtResource("7_sc1eh")
+target = NodePath("../LowPolySportsCar/front_left_tire")
+skidLimit = 120.0
+
+[node name="TireMarks3" type="MeshInstance3D" parent="." node_paths=PackedStringArray("target")]
+material_override = SubResource("StandardMaterial3D_hnxty")
+script = ExtResource("7_sc1eh")
+target = NodePath("../LowPolySportsCar/rear_right_tire")
+skidLimit = 120.0
+
+[node name="TireMarks4" type="MeshInstance3D" parent="." node_paths=PackedStringArray("target")]
+material_override = SubResource("StandardMaterial3D_xtmgj")
+script = ExtResource("7_sc1eh")
+target = NodePath("../LowPolySportsCar/rear_left_tire")
+skidLimit = 120.0
 
 [node name="LowPolySportsCar" type="VehicleBody3D" parent="."]
 contact_monitor = true
@@ -104,7 +79,6 @@ use_as_steering = true
 wheel_roll_influence = 0.5
 wheel_radius = 0.37
 wheel_rest_length = 0.095
-wheel_friction_slip = 3.0
 suspension_travel = 0.357
 suspension_stiffness = 30.0
 suspension_max_force = 10000.0
@@ -119,7 +93,6 @@ use_as_steering = true
 wheel_roll_influence = 0.5
 wheel_radius = 0.37
 wheel_rest_length = 0.095
-wheel_friction_slip = 3.0
 suspension_travel = 0.357
 suspension_stiffness = 30.0
 suspension_max_force = 10000.0
@@ -133,9 +106,9 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.943, -0.98223, 1.207)
 use_as_traction = true
 wheel_roll_influence = 0.5
-wheel_radius = 0.372
+wheel_radius = 0.397
 wheel_rest_length = 0.095
-wheel_friction_slip = 2.9
+wheel_friction_slip = 0.1
 suspension_travel = 0.357
 suspension_stiffness = 30.0
 suspension_max_force = 10000.0
@@ -148,9 +121,9 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.943, -0.98223, 1.207)
 use_as_traction = true
 wheel_roll_influence = 0.125
-wheel_radius = 0.372
+wheel_radius = 0.397
 wheel_rest_length = 0.095
-wheel_friction_slip = 2.9
+wheel_friction_slip = 0.1
 suspension_travel = 0.357
 suspension_stiffness = 30.0
 suspension_max_force = 10000.0
@@ -180,41 +153,11 @@ _fromWidth = 0.2
 
 [node name="MachineGuns" type="Node3D" parent="LowPolySportsCar/Guns"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="LowPolySportsCar/Guns/MachineGuns"]
-root_node = NodePath("../MachineGun2")
-libraries = {
-"": SubResource("AnimationLibrary_de24s")
-}
-
-[node name="MachineGun2" type="Node3D" parent="LowPolySportsCar/Guns/MachineGuns" node_paths=PackedStringArray("raycast", "anim_player")]
+[node name="MachineGunLeft" parent="LowPolySportsCar/Guns/MachineGuns" instance=ExtResource("6_00drx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, -0.392, -1.049)
-script = ExtResource("5_2nm6d")
-raycast = NodePath("RayCast3D")
-anim_player = NodePath("../AnimationPlayer")
 
-[node name="RayCast3D" type="RayCast3D" parent="LowPolySportsCar/Guns/MachineGuns/MachineGun2"]
-transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, -1.1, -0.391865, -1.64901)
-target_position = Vector3(0, -100, 0)
-
-[node name="Mesh" type="CSGCylinder3D" parent="LowPolySportsCar/Guns/MachineGuns/MachineGun2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-radius = 0.1
-height = 1.0
-
-[node name="MachineGun" type="Node3D" parent="LowPolySportsCar/Guns/MachineGuns" node_paths=PackedStringArray("raycast", "anim_player")]
+[node name="MachineGunLeft2" parent="LowPolySportsCar/Guns/MachineGuns" instance=ExtResource("6_00drx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, -0.392, -1.049)
-script = ExtResource("5_2nm6d")
-raycast = NodePath("RayCast3D")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="RayCast3D" type="RayCast3D" parent="LowPolySportsCar/Guns/MachineGuns/MachineGun"]
-transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 1.1, -0.392, -1.649)
-target_position = Vector3(0, -100, 0)
-
-[node name="Mesh" type="CSGCylinder3D" parent="LowPolySportsCar/Guns/MachineGuns/MachineGun"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-radius = 0.1
-height = 1.0
 
 [node name="Camera" parent="." node_paths=PackedStringArray("cam_root", "car") instance=ExtResource("3_ywfgl")]
 cam_root = NodePath("../LowPolySportsCar/Car1/cam_pos")
